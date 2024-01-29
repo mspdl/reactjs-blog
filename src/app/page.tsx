@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <PostProvider>
       <div className="flex justify-center mt-5">
-        <div className="container text-center">
+        <div className="container max-w-xl text-center">
           <Header />
           <PostList />
           <Footer />
