@@ -4,12 +4,17 @@ import { useContext } from "react";
 const PostList = () => {
   const postCtx = useContext(PostContext);
 
+  const handleRemovePost = (postId: number) => {
+    postCtx?.dispatch({ type: "remove", payload: { id: postId } });
+  };
+
   return (
     <div className="">
       {postCtx?.posts.map((post) => (
-        <div key={post.id} className="p-3 border-b border-gray-500">
+        <div key={post.id} className="p-3">
           <h1 className="text-xl font-bold mb-2">{post.title}</h1>
           <div className="text-sm">{post.body}</div>
+          <button onClick={() => handleRemovePost(post.id)}>[ remove ]</button>
         </div>
       ))}
       {!postCtx?.posts ||

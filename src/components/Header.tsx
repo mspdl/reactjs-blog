@@ -8,7 +8,7 @@ const Header = () => {
 
   const handleAddButton = () => {
     if (title.trim() === "" || body.trim() === "") return false;
-    postCtx?.addPost(title, body);
+    postCtx?.dispatch({ type: "add", payload: { title, body } });
     setTitle("");
     setBody("");
   };
